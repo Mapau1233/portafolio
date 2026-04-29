@@ -2,280 +2,15 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Portafolio Paula</title>
 
 <link rel="icon" href="images/logo.jpeg">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: linear-gradient(180deg, #000000, #1a0010);
-  color: white;
-  animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-
-nav {
-  position: fixed;
-  width: 100%;
-  background: rgba(216, 124, 154, 0.85);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-}
-
-.logo {
-  width: 50px;
-}
-
-nav ul {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1rem;
-  padding: 5px 10px;
-  position: relative;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: #ffd1e1;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -5px;
-  background: #ff4d88;
-  transition: 0.3s;
-}
-
-nav a:hover::after,
-nav a.active::after {
-  width: 100%;
-}
-
-.hero {
-  height: 100vh;
-  background: url('images/portada.jpeg') center center / cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-align: center;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero h1 {
-  font-size: 4.5rem;
-  font-family: 'Great Vibes', cursive;
-  text-shadow: 0 0 20px #ff4d88;
-}
-
-.subtitulo {
-  margin-top: 15px;
-  font-size: 1.5rem;
-  color: #ffd1e1;
-}
-
-
-.section {
-  padding: 100px 60px;
-  background: rgba(0,0,0,0.6);
-  border-radius: 10px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-.sobre-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.sobre-texto {
-  max-width: 600px;
-}
-
-.sobre-imagen {
-  width: 100%;
-  height: 400px;
-  border: 2px solid #ff4d88;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(255, 77, 136, 0.3);
-  transition: all 0.4s ease;
-  opacity: 0;
-  transform: translateX(50px);
-}
-
-.sobre-imagen.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.sobre-imagen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.sobre-imagen:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 60px rgba(255, 77, 136, 0.6);
-}
-
-
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #ff9dba;
-}
-
-p {
-  font-size: 1.2rem;
-  max-width: 800px;
-  line-height: 1.7;
-}
-
-
-.categoria {
-  margin-top: 80px;
-}
-
-.titulo {
-  font-size: 2rem;
-  margin: 30px;
-  color: #ff9dba;
-}
-
-.imagen-full {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.8s ease, filter 0.5s, opacity 0.8s;
-  filter: brightness(0.85);
-  opacity: 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.imagen-full.visible {
-  opacity: 1;
-}
-
-.imagen-full:hover {
-  transform: scale(1.05);
-  filter: brightness(1);
-}
-
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.grid div {
-  background: rgba(255, 77, 136, 0.1);
-  border: 1px solid #ff4d88;
-  padding: 40px;
-  text-align: center;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.grid div:hover {
-  background: #ff4d88;
-  transform: scale(1.05);
-}
-
-
-.contacto {
-  text-align: center;
-  padding: 60px;
-}
-
-.contacto a {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 20px;
-  border: 1px solid #ff4d88;
-  border-radius: 20px;
-  color: #ff4d88;
-  text-decoration: none;
-}
-
-.contacto a:hover {
-  background: #ff4d88;
-  color: white;
-}
-
-
-@media (max-width: 768px) {
-  .sobre-container {
-    grid-template-columns: 1fr;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Great+Vibes&family=Permanent+Marker&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -294,7 +29,6 @@ p {
   </div>
 </nav>
 
-
 <section id="inicio" class="hero">
   <div class="hero-content">
     <h1>Portafolio</h1>
@@ -304,90 +38,102 @@ p {
 
 <section id="sobre" class="section">
   <div class="sobre-container">
+
     <div class="sobre-texto">
       <h2>Sobre mí</h2>
-      <p>Hola soy Paula, diseñadora gráfica e ilustradora apasionada por la creatividad y la expresión visual. Me inspiran las animaciones y el estilo del anime y el manga, que combinan emoción, detalle y narración. A través de mis ilustraciones y proyectos publicitarios, busco crear piezas que transmitan energía, imaginación y una identidad visual única. Para mí, el diseño es una forma de contar historias y conectar con las personas a través del arte.</p>
+      <p>
+        Hola, soy Paula, diseñadora gráfica e ilustradora apasionada por la creatividad y la expresión visual. 
+        Mi trabajo se enfoca en la creación de arte digital e ilustraciones personalizadas, donde busco transformar ideas, 
+        emociones y conceptos en piezas visuales únicas. Me inspiran profundamente las animaciones, el anime y el manga, 
+        estilos que han influido en mi forma de crear y contar historias a través de la ilustración.
+        Disfruto realizar comisiones personalizadas en estilos como anime, chibi y manga, dando vida a personajes,
+        momentos especiales e ideas que reflejen la esencia de cada persona. En cada proyecto combino detalle, color y 
+        narrativa visual para crear ilustraciones con personalidad y significado. 
+        Para mí, el diseño y la ilustración son más que una profesión: son una forma de conectar, comunicar y convertir 
+        la imaginación en arte.
+      </p>
     </div>
+
     <div class="sobre-imagen">
-      <img src="images/FotomiaIlustrada.jpeg">
+      <img src="images/FotomiaIlustrada.jpeg" alt="">
     </div>
+
   </div>
 </section>
 
 <section id="portafolio">
+
   <div class="categoria">
+
     <div class="titulo">Ilustraciones</div>
+
     <img src="images/ilustracioneschibis.jpeg" class="imagen-full">
+
+    <div class="descripcion">
+      Esta colección de ilustraciones representa mi trabajo en la creación de personajes estilo anime y chibi, un formato que me permite explorar la creatividad a través de diseños llenos de expresión, color y personalidad. Cada personaje está pensado para transmitir una esencia única, jugando con rasgos visuales como peinados, vestuario, poses y expresiones que ayudan a contar una pequeña historia en una sola imagen.
+
+
+      En estas piezas se puede apreciar la diversidad de estilos y personalidades: desde personajes con una apariencia dulce y tierna, hasta diseños con una actitud más dinámica y segura, mostrando cómo pequeños detalles pueden definir la identidad de cada uno. El estilo chibi me permite exagerar emociones y características de forma visualmente atractiva, creando personajes más cercanos, memorables y llenos de vida.
+    </div>
+
     <img src="images/ilustracionconmisgatos.jpeg" class="imagen-full">
-  </div>
-</section>
 
-<section id="portafolio">
+    <div class="descripcion">
+      En estas ilustraciones se refleja la dualidad de sus personalidades: por un lado, su lado más dulce y tranquilo, representado en gestos suaves y expresiones serenas; y por otro, esa energía juguetona y curiosa que los hace únicos. La combinación de colores suaves, líneas delicadas y un estilo inspirado en la estética anime y chibi me permitió darles vida de una forma cercana, emotiva y llena de identidad. 
+      
+      Además de representar a mis mascotas, estas piezas simbolizan momentos cotidianos de cariño, compañía y conexión emocional. Para mí, ilustrarlos es una forma de convertir recuerdos y sentimientos en arte, transformando pequeños instantes de amor y convivencia en imágenes que cuentan una historia. Estas ilustraciones son una muestra de cómo el arte puede ser un puente entre lo personal y lo creativo, llevando emociones reales a un lenguaje visual lleno de sensibilidad y detalle.
+    </div>
+
+  </div>
+
   <div class="categoria">
-    <div class="titulo">Diseño de personajes</div>
+
+    <div class="titulo">Diseño de Personajes</div>
+
     <img src="images/Gatocaras1.jpeg" class="imagen-full">
-    <img src="images/cuerposgatos1.jpeg" class="imagen-full">
-  </div>
-</section>
 
-<section id="portafolio">
-  <div class="categoria">
-    <div class="titulo">Publicidad</div>
-    <img src="images/publicidad1.jpeg" class="imagen-full">
-    <img src="images/publicidad2.jpeg" class="imagen-full">
+    <div class="descripcion">
+      El proceso creativo comenzó con la fase de lineart, donde se construyó la estructura base del personaje y se definieron los rasgos principales, como la forma del rostro, la expresión de los ojos, la posición de la boca y los detalles del vestuario. Esta etapa fue fundamental para establecer la identidad visual y la coherencia de cada expresión, permitiendo experimentar con diferentes emociones manteniendo la esencia del personaje.
+      
+      Posteriormente, se desarrolló la fase de color, en la que se aplicó una paleta cálida y vibrante para reforzar la personalidad del personaje y dar mayor profundidad visual. El color permitió destacar detalles, aportar vida al diseño y enfatizar la carga emocional de cada expresión. A través de este proceso, se evidencia cómo la ilustración pasa de una base estructural a una pieza completa, donde línea, color y emoción trabajan en conjunto para dar vida al personaje.
+    </div>
+
+    <img src="images/cuerposgatos1.jpeg" class="imagen-full">
+
+    <div class="descripcion">
+      Este personaje fue desarrollado a partir de un proceso por etapas que inicia con la construcción del lineart, donde se definieron las formas principales, proporciones y detalles del diseño. En esta fase se buscó lograr líneas limpias y expresivas que reflejaran la personalidad del personaje desde distintos ángulos.
+
+      Posteriormente, se realizó la aplicación de color, comenzando con una paleta base para diferenciar cada elemento del personaje, como el pelaje, la ropa y los accesorios. Se priorizó el uso de colores planos y contrastes simples para mantener un estilo visual limpio y atractivo.
+      
+      Finalmente, el diseño se presentó en diferentes vistas (frontal, lateral y posterior), lo que permite entender mejor la estructura del personaje y su coherencia visual. Este tipo de presentación es común en el desarrollo de personajes, ya que facilita su uso en animación, ilustración o proyectos narrativos.
+    </div>
+
   </div>
+
 </section>
 
 <section id="servicios" class="section">
   <h2>Servicios</h2>
+
   <div class="grid">
     <div>Ilustraciones</div>
     <div>Diseño de personajes</div>
-    <div>Publicidad</div>
   </div>
 </section>
 
 <section id="contacto" class="contacto">
   <h2>Contacto</h2>
-  <a href="#">mapaulabolivar@gmail.com</a>
-  <a href="https://www.behance.net/paulabolivar4">Behance</a>
+
+  <a href="mailto:mapaulabolivar@gmail.com">
+    mapaulabolivar@gmail.com
+  </a>
+
+  <a href="https://www.behance.net/paulabolivar4" target="_blank">
+    Behance
+  </a>
 </section>
 
-<script>
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
-const elements = document.querySelectorAll(".section, .imagen-full, .sobre-imagen");
-
-window.addEventListener("scroll", () => {
-
-  let current = "";
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (scrollY >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-
-    if (window.scrollY > section.offsetTop - 400) {
-      section.classList.add("visible");
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
-
-  elements.forEach(el => {
-    if (window.scrollY > el.offsetTop - 500) {
-      el.classList.add("visible");
-    }
-  });
-
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
